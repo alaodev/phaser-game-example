@@ -1,8 +1,12 @@
 import Phaser from "phaser";
 
+import Platforms from "@/game/objects/platforms";
+
 class MainScene extends Phaser.Scene {
   constructor() {
     super()
+
+    this.plataforms = undefined
   }
 
   init() {
@@ -19,6 +23,12 @@ class MainScene extends Phaser.Scene {
       'assets/sprites/dude.png',
       { frameWidth: 32, frameHeight: 48 }
     )
+  }
+
+  create() {
+    this.add.image(400, 300, 'sky')
+
+    this.plataforms = new Platforms(this)
   }
 
 }
