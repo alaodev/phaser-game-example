@@ -1,17 +1,19 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
-import Platforms from "@/game/objects/platforms";
-import Player from "@/game/objects/player";
-import Cursors from "@/game/controllers/cursors";
-import Anims from "@/game/controllers/anims";
+import Platforms from '@/game/objects/platforms';
+import Player from '@/game/objects/player';
+import Cursors from '@/game/controllers/cursors';
+import Stars from '@/game/objects/stars'
+import Anims from '@/game/controllers/anims';
 
 class MainScene extends Phaser.Scene {
   constructor() {
     super()
 
-    this.plataforms = undefined
+    this.platforms = undefined
     this.player = undefined
     this.cursors = undefined
+    this.stars = undefined
   }
 
   init() {
@@ -33,13 +35,15 @@ class MainScene extends Phaser.Scene {
   create() {
     this.add.image(400, 300, 'sky')
 
-    this.plataforms = new Platforms(this)
+    this.platforms = new Platforms(this)
     this.player = new Player(this)
     this.cursors = new Cursors(this)
+    this.stars = new Stars(this)
 
     new Anims(this)
 
-    this.physics.add.collider(this.player.object, this.plataforms.object)
+    this.physics.add.collider(this.player.object, this.platforms.object)
+    this.physics.add.collider(this.stars.object, this.platforms.object);
   }
 
   update() {
