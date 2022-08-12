@@ -1,12 +1,14 @@
 import Phaser from "phaser";
 
 import Platforms from "@/game/objects/platforms";
+import Player from "@/game/objects/player";
 
 class MainScene extends Phaser.Scene {
   constructor() {
     super()
 
     this.plataforms = undefined
+    this.player = undefined
   }
 
   init() {
@@ -29,6 +31,9 @@ class MainScene extends Phaser.Scene {
     this.add.image(400, 300, 'sky')
 
     this.plataforms = new Platforms(this)
+    this.player = new Player(this)
+
+    this.physics.add.collider(this.player.object, this.plataforms.object)
   }
 
 }
