@@ -2,6 +2,7 @@ import Phaser from "phaser";
 
 import Platforms from "@/game/objects/platforms";
 import Player from "@/game/objects/player";
+import Cursors from "@/game/controllers/cursors";
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,7 @@ class MainScene extends Phaser.Scene {
 
     this.plataforms = undefined
     this.player = undefined
+    this.cursors = undefined
   }
 
   init() {
@@ -32,8 +34,31 @@ class MainScene extends Phaser.Scene {
 
     this.plataforms = new Platforms(this)
     this.player = new Player(this)
+    this.cursors = new Cursors(this)
 
     this.physics.add.collider(this.player.object, this.plataforms.object)
+  }
+
+  update() {
+    if (this.cursors.controller.left.isDown) {
+      this.player.object.setVelocityX(-160);
+
+      this.player.object.anims.play('left', true);
+    }
+    else if (this.cursors.controller.right.isDown) {
+      this.player.object.setVelocityX(160);
+
+      this.player.object.anims.play('right', true);
+    }
+    else {
+      this.player.object.setVelocityX(0);
+
+      this.player.object.anims.play('turn');
+    }
+
+    if (this.cursors.controller.up.isDown && this.player.object.body.touching.down) {
+      this.player.object.setVelocityY(-500);
+    }
   }
 
 }
