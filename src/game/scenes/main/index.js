@@ -14,6 +14,9 @@ class MainScene extends Phaser.Scene {
     this.player = undefined
     this.cursors = undefined
     this.stars = undefined
+
+    this.score = 0
+    this.scoreText = ''
   }
 
   init() {
@@ -34,6 +37,7 @@ class MainScene extends Phaser.Scene {
 
   create() {
     this.add.image(400, 300, 'sky')
+    this.scoreText = this.add.text(16, 16, `Score: ${this.score}`, { fontSize: '32px', fill: '#000' })
 
     this.platforms = new Platforms(this)
     this.player = new Player(this)
