@@ -30,6 +30,13 @@ class Stars {
       this.stars.object.children.iterate(function (child) {
         child.enableBody(true, child.x, 0, true, true)
       })
+
+      let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400)
+
+      let bomb = this.bombs.object.create(x, 16, 'bomb')
+      bomb.setBounce(1)
+      bomb.setCollideWorldBounds(true);
+      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
     }
   }
 }
