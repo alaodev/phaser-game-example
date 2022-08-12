@@ -1,3 +1,5 @@
+import Platform from "./platform"
+
 class Platforms {
   constructor(context) {
     this.context = context
@@ -7,13 +9,16 @@ class Platforms {
   }
 
   initialize() {
+
     this.object = this.context.physics.add.staticGroup()
 
-    this.object.create(400, 568, 'ground').setScale(2).refreshBody()
+    new Platform(this.context, this.object, 0, { x: 150, y: 450 }, 1)
+    new Platform(this.context, this.object, 0, { x: 850, y: 450 }, 1)
 
-    this.object.create(600, 400, 'ground')
-    this.object.create(50, 250, 'ground')
-    this.object.create(750, 220, 'ground')
+    new Platform(this.context, this.object, 0, { x: 500, y: 600 }, 1)
+    new Platform(this.context, this.object, 2, { x: 500, y: 275 }, 1)
+
+    new Platform(this.context, this.object, 6, { x: 500, y: 750 }, 1)
   }
 }
 

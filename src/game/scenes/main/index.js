@@ -26,10 +26,13 @@ class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('sky', 'assets/images/sky.png')
+    this.load.image('background', 'assets/images/background.png')
     this.load.image('bomb', 'assets/images/bomb.png')
     this.load.image('ground', 'assets/images/platform.png')
     this.load.image('star', 'assets/images/star.png')
+    this.load.image('platform-l', 'assets/images/platform-left.png')
+    this.load.image('platform-c', 'assets/images/platform-center.png')
+    this.load.image('platform-r', 'assets/images/platform-right.png')
 
     this.load.spritesheet('dude',
       'assets/sprites/dude.png',
@@ -38,7 +41,7 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(400, 300, 'sky')
+    this.add.image(500, 375, 'background')
     this.scoreText = this.add.text(16, 16, `Score: ${this.score}`, { fontSize: '32px', fill: '#000' })
 
     this.platforms = new Platforms(this)
