@@ -19,6 +19,10 @@ class Stars {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
   }
+
+  collectStar(player, star) {
+    star.disableBody(true, true);
+  }
 }
 
 export default Stars
