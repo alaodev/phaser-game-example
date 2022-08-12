@@ -3,6 +3,7 @@ import Phaser from "phaser";
 import Platforms from "@/game/objects/platforms";
 import Player from "@/game/objects/player";
 import Cursors from "@/game/controllers/cursors";
+import Anims from "@/game/controllers/anims";
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -35,6 +36,8 @@ class MainScene extends Phaser.Scene {
     this.plataforms = new Platforms(this)
     this.player = new Player(this)
     this.cursors = new Cursors(this)
+
+    new Anims(this)
 
     this.physics.add.collider(this.player.object, this.plataforms.object)
   }
