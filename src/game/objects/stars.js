@@ -25,6 +25,12 @@ class Stars {
 
     this.score += 10
     this.scoreText.setText(`Score: ${this.score}`)
+
+    if (this.stars.object.countActive(true) === 0) {
+      this.stars.object.children.iterate(function (child) {
+        child.enableBody(true, child.x, 0, true, true)
+      })
+    }
   }
 }
 
