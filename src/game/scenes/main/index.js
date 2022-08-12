@@ -52,6 +52,7 @@ class MainScene extends Phaser.Scene {
     this.physics.add.collider(this.player.object, this.platforms.object)
     this.physics.add.collider(this.stars.object, this.platforms.object);
     this.physics.add.collider(this.bombs.object, this.platforms.object);
+    this.physics.add.collider(this.bombs.object, this.bombs.object);
     this.physics.add.overlap(this.player.object, this.stars.object, this.stars.collectStar, null, this);
     this.physics.add.collider(this.player.object, this.bombs.object, this.bombs.hitBomb, null, this);
   }
