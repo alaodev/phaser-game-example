@@ -7,11 +7,11 @@ class Player {
   }
 
   initialize() {
-    this.object = this.context.physics.add.sprite(100, 400, 'dude')
+    this.object = this.context.physics.add.sprite(100, 600, 'dude')
 
-    this.object.setBounce(0.2)
+    this.object.setBounce(0.1)
     this.object.setCollideWorldBounds(true)
-    this.object.body.setGravityY(300)
+    this.object.body.setGravityY(1000)
   }
 }
 

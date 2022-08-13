@@ -11,13 +11,13 @@ class Stars {
   initialize() {
     this.object = this.context.physics.add.group({
       key: 'star',
-      repeat: 11,
-      setXY: { x: 12, y: 0, stepX: 70 }
-    });
+      repeat: 10,
+      setXY: { x: 50, y: -10, stepX: 90 }
+    })
 
     this.object.children.iterate(function (child) {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-    });
+    })
   }
 
   collectStar(player, star) {
@@ -36,7 +36,7 @@ class Stars {
       let bomb = this.bombs.object.create(x, 16, 'bomb')
       bomb.setBounce(1)
       bomb.setCollideWorldBounds(true);
-      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+      bomb.setVelocity(Phaser.Math.Between(100, 200), 20);
     }
   }
 }

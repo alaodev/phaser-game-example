@@ -62,12 +62,12 @@ class MainScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.controller.left.isDown) {
-      this.player.object.setVelocityX(-160);
+      this.player.object.setVelocityX(-300);
 
       this.player.object.anims.play('left', true);
     }
     else if (this.cursors.controller.right.isDown) {
-      this.player.object.setVelocityX(160);
+      this.player.object.setVelocityX(300);
 
       this.player.object.anims.play('right', true);
     }
@@ -78,7 +78,7 @@ class MainScene extends Phaser.Scene {
     }
 
     if (this.cursors.controller.up.isDown && this.player.object.body.touching.down) {
-      this.player.object.setVelocityY(-500);
+      this.player.object.setVelocityY(-750);
     }
   }
 
